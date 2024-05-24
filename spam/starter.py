@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Read the dataset
-emails = pd.read_csv("emails.csv")
+emails = pd.read_csv("spam/emails.csv")
 
 def process_email(text):
     text = text.lower()
@@ -48,3 +48,8 @@ emails["words"] = emails["text"].apply(process_email)
 word_to_predict = "payment"
 prediction = predict_naive_bayes(emails, word_to_predict)
 print(f"The email containing the word '{word_to_predict}' is predicted to be {prediction}.")
+
+def input_text(text):
+    words = process_email(text)
+    predictions = [predict_naive_bayes(emails, word) for word in words]
+    return predictions
