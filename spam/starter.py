@@ -45,9 +45,9 @@ def predict_naive_bayes(emails, word):
 emails["words"] = emails["text"].apply(process_email)
 
 # Example usage
-word_to_predict = "payment"
-prediction = predict_naive_bayes(emails, word_to_predict)
-print(f"The email containing the word '{word_to_predict}' is predicted to be {prediction}.")
+# word_to_predict = "payment"
+# prediction = predict_naive_bayes(emails, word_to_predict)
+# print(f"The email containing the word '{word_to_predict}' is predicted to be {prediction}.")
 
 def input_text(text):
     words = process_email(text)

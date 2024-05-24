@@ -5,5 +5,7 @@ app = FastAPI()
 
 
 @app.get("/")
-def spam_detector(text: str):
-    return starter.input_text(text)
+def predict_spam(text: str):
+    words = starter.process_email(text)
+    predictions = [starter.predict_naive_bayes(starter.emails, word) for word in words]
+    return predictions 
